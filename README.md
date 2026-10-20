@@ -36,6 +36,10 @@ As imagens de transporte geradas por IA são ilustrativas e não comprovam a fro
 
 ## Hospedagem
 
-Use `dist` como diretório público em uma hospedagem estática. Os links começam na raiz (`/`), portanto a configuração atual pressupõe um domínio ou subdomínio dedicado. Hospedar em um subdiretório, como o endereço padrão de um projeto no GitHub Pages, exige ajustar esses caminhos.
+O GitHub Pages publica o site em https://usabra.github.io/patroa-auto-socorro-transportes/.
 
-Este repositório contém os arquivos do site. O envio ao GitHub não publica o site automaticamente.
+O fluxo `.github/workflows/pages.yml` publica automaticamente as alterações enviadas à branch `main`. Em Settings → Pages, a fonte deve ser **GitHub Actions**.
+
+O script `scripts/build_pages.py` copia `dist` para `_site` e adapta os caminhos de páginas, imagens e estilos ao endereço do Pages. Os arquivos originais continuam funcionando no servidor local. A variável `PAGES_BASE_PATH`, fornecida pelo fluxo, permite adaptar o endereço caso seja configurado um domínio próprio.
+
+Em outra hospedagem estática com domínio dedicado, use diretamente `dist` como diretório público.
